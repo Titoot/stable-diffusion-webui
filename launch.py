@@ -13,7 +13,7 @@ from pyngrok import ngrok
 ngrok.kill()
 
 # Get your authtoken from https://dashboard.ngrok.com/auth
-NGROK_AUTH_TOKEN = "" #@param {type:"string"}
+NGROK_AUTH_TOKEN = input("input ngrok token:")
 ngrok.set_auth_token(NGROK_AUTH_TOKEN)
 
 public_url = ngrok.connect(7860)
