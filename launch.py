@@ -7,6 +7,17 @@ import shlex
 import platform
 import argparse
 import json
+from pyngrok import ngrok
+
+# Terminate open tunnels if exist
+ngrok.kill()
+
+# Get your authtoken from https://dashboard.ngrok.com/auth
+NGROK_AUTH_TOKEN = "" #@param {type:"string"}
+ngrok.set_auth_token(NGROK_AUTH_TOKEN)
+
+public_url = ngrok.connect(7860)
+print("Tracking URL:", public_url)
 
 dir_repos = "repositories"
 dir_extensions = "extensions"
